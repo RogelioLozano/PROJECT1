@@ -168,4 +168,13 @@ yarn-error.log*
 # local .env files
 .env.local*
 
+# Python dependencies
+__pycache__/
+*.py[cod]
+*.pyo
+*.env
+.venv/
+build/
+dist/
+logs/
 

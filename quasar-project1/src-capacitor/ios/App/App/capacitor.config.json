@@ -1,0 +1,11 @@
+{
+	"appId": "com.rogeliolozano.project1",
+	"appName": "ProjectInventory",
+	"webDir": "www",
+	"server": {
+		"url": "http://10.137.226.117:9500"
+	},
+	"packageClassList": [
+		"AppPlugin"
+	]
+}

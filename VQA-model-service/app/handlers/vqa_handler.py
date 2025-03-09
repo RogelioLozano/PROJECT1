@@ -6,6 +6,7 @@ processor = ViltProcessor.from_pretrained("dandelin/vilt-b32-finetuned-vqa")
 model = ViltForQuestionAnswering.from_pretrained("dandelin/vilt-b32-finetuned-vqa")
 
 def process_vqa(image: Image.Image, question: str) -> str:
+    print("HEre-----")
     inputs = processor(image, question, return_tensors="pt")
     outputs = model(**inputs)
     logits = outputs.logits

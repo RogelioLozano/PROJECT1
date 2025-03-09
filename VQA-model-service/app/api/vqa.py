@@ -16,7 +16,7 @@ class VQAResponse(BaseModel):
 @router.post("", response_model=VQAResponse)
 async def vqa_endpoint(payload: VQARequest):
     try:
-        rich.print(payload)
+        # rich.print(payload)
         image = decode_base64_image(payload.image_base64)
         answer = process_vqa(image, payload.question)
         return {"answer": answer}

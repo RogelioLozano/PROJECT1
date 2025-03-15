@@ -11,8 +11,9 @@ app = FastAPI()
 load_dotenv()  # take environment variables from .env.
 
 origins = [
-    "http://127.0.0.1:9000",
-     os.getenv("PRODUCTION_URL"),
+    # "http://127.0.0.1:9000",
+    #  os.getenv("PRODUCTION_URL"),
+    "*"
 ]
 
 app.add_middleware(

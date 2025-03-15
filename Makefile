@@ -8,7 +8,7 @@ install:
 	npm install --prefix $(FRONTEND_DIR)
 
 start:
-	(cd $(BACKEND_DIR) && fastapi dev app/main.py) &
+	(cd $(BACKEND_DIR) && uvicorn app.main:app --host 0.0.0.0 --port $(PORT)) &
 	(cd $(FRONTEND_DIR) && npm run dev)
 
 stop:

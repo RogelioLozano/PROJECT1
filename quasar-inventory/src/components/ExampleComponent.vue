@@ -47,7 +47,6 @@ const takePicture = async () => {
   context.drawImage(video.value, 0, 0, canvas.value.width, canvas.value.height);
   imageUrl.value = canvas.value.toDataURL('image/jpeg', 0.9); // Convert to base64 image
 
-  console.log('Image URL:', imageUrl.value);
 
   imageUrl.value = imageUrl.value.split('data:image/jpeg;base64,')[1];
 

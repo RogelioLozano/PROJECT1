@@ -8,8 +8,13 @@ install:
 	npm install --prefix $(FRONTEND_DIR)
 
 start:
-	(cd $(BACKEND_DIR) && uvicorn app.main:app --host 0.0.0.0 --port $(PORT)) &
+	(cd $(BACKEND_DIR) && fastapi dev app/main.py) &
 	(cd $(FRONTEND_DIR) && npm run dev)
+
+production:
+	(cd $(BACKEND_DIR) && uvicorn app.main:app --host 0.0.0.0 --port $(PORT)) &
+	(cd $(FRONTEND_DIR) && npm run start)
+
 
 stop:
 	@pkill -f "fastapi dev app/main.py" || true

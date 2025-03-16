@@ -31,5 +31,6 @@ app.include_router(vqa_router, prefix="/vqa", tags=["Visual Question Answering"]
 # `os.getenv`) as if they came from the actual environment.
 
 @app.get("/health")
+@app.head("/health", status_code=204)
 def health():
     return {"Hello": "Welcome to the VQA API!"}

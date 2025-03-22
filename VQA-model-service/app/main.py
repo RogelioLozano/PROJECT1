@@ -5,14 +5,19 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 import os
+from fastapi.middleware.gzip import GZipMiddleware
 
 app = FastAPI()
 
 load_dotenv()  # take environment variables from .env.
 
+# if the environment variable is not set, the default value is used
+prod_url = os.getenv("PRODUCTION_URL", "https://project-1-git-main-rogeliolozanos-projects.vercel.app")
+
+
 origins = [
-    # "http://127.0.0.1:9000",
-    #  os.getenv("PRODUCTION_URL"),
+    "glorious-magic.railway.internal",
+    prod_url,
     "*"
 ]
 
@@ -23,6 +28,9 @@ app.add_middleware(
     allow_methods=["*"],  # Allow all HTTP methods (GET, POST, etc.)
     allow_headers=["*"],  # Allow all headers
 )
+
+app.add_middleware(GZipMiddleware, minimum_size=1000)  # Enable gzip
+
 
 app.include_router(vqa_router, prefix="/vqa", tags=["Visual Question Answering"])
 

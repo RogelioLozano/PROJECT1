@@ -2,7 +2,6 @@ from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from app.handlers.vqa_handler import process_vqa
 from app.utils.image_processing import decode_base64_image
-import rich
 
 router = APIRouter()
 

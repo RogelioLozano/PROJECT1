@@ -36,17 +36,16 @@ const stopCamera = () => {
   }
 };
 
-
 const takePicture = async () => {
   if (!video.value || !canvas.value) return;
 
   const context = canvas.value.getContext('2d');
-  canvas.value.width = video.value.videoWidth;
-  canvas.value.height = video.value.videoHeight;
+  const scaleFactor = 0.5; // Scale down the image to 50%
+  canvas.value.width = video.value.videoWidth * scaleFactor;
+  canvas.value.height = video.value.videoHeight * scaleFactor;
 
   context.drawImage(video.value, 0, 0, canvas.value.width, canvas.value.height);
-  imageUrl.value = canvas.value.toDataURL('image/jpeg', 0.9); // Convert to base64 image
-
+  imageUrl.value = canvas.value.toDataURL('image/jpeg', 0.2); // Convert to base64 image with lower quality
 
   imageUrl.value = imageUrl.value.split('data:image/jpeg;base64,')[1];
 

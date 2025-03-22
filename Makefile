@@ -1,6 +1,6 @@
 # Define project directories
-BACKEND_DIR=/Users/rogeliolozano/PROJECT1/VQA-model-service
-FRONTEND_DIR=/Users/rogeliolozano/PROJECT1/quasar-inventory
+BACKEND_DIR=/Users/rogeliolozano/dev/PROJECT1/VQA-model-service
+FRONTEND_DIR=/Users/rogeliolozano/dev/PROJECT1/quasar-inventory
 
 # Define commands
 install:
